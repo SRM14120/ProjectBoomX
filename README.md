@@ -14,7 +14,7 @@ else:
        hola.write(f + "      "+r+"      "+d+"\n")
    hola.close()
    a = v
-   
+
 if b == 0 :
     caja = 0
     apSocial = 0
@@ -29,6 +29,7 @@ if b == 0 :
     BancosExtra = 0
     ProveedoresNal = 0
     ProveedoresExt = 0
+    
 elif b ==1 :
     historial = open("Obri.txt","r+")
     for i in historial:
@@ -39,7 +40,7 @@ elif b ==1 :
         elif i.split()[4] == "bancos":
             bancos = int(i.split()[0])
         elif i.split()[4] == "Mercancias":
-            MercanciasNF = int(i.split()[0])
+             MercanciasNF = int(i.split()[0])
         elif i.split()[4] == "Terrenos":
              Terrenos = int(i.split()[0])
         elif i.split()[4] == "Construcciones":
@@ -58,7 +59,7 @@ elif b ==1 :
              ProveedoresNal = int(i.split()[0])
         elif i.split()[4] == "Proveedores" and i.split()[5] == "extranjeros":
              ProveedoresExt = int(i.split()[0])
-    historial.close()
+
 
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -146,70 +147,84 @@ for i in lectura:
     
 
 try:        
- if caja != 0:
+  if caja != 0:
     respuesta.write(str(caja) + " Se poseen en caja al día: " + a + " \n")
 except:
     None
+    
 try:
  if apSocial != 0:
     respuesta.write(str(apSocial) + " Se poseen en aporte social al día: " + a + " \n")
 except:
     None
+    
 try:
  if bancos != 0:
     respuesta.write(str(bancos) + " Se poseen en bancos al día: " + a + " \n")
 except:
     None
+    
 try:
   if MercanciasNF != 0:
-    respuesta.write(str(MercanciasNF) + " Se poseen en Mercancías no fabricadas por la empresa al día: " + a + " \n")
+    respuesta.write(str(MercanciasNF) + " Se poseen en Mercancias no fabricadas por la empresa al día: " + a + " \n")
 except:
     None
+    
 try: 
    if  Terrenos != 0:
     respuesta.write(str(Terrenos) + " Se poseen en Terrenos al día: " + a + " \n")
 except:
     None
+    
 try:
   if Construcciones != 0:
     respuesta.write(str(Construcciones) + " Se poseen en Construcciones y edificaciones al día: " + a + " \n")
 except:
     None
+    
 try:
  if Maquinaria != 0:
     respuesta.write(str(Maquinaria) + " Se poseen en Maquinaria y Equipos al día: " + a + " \n")
 except:
     None
+    
 try:
  if EquiposCompu != 0:
     respuesta.write(str(EquiposCompu) + " Se poseen en Equipos de computo y comunicaciones al día: " + a + " \n")
 except:
     None
+    
 try:
  if EquipoDeOficina != 0:
     respuesta.write(str(EquipoDeOficina) + " Se poseen en Equipos de oficina al día: " + a + " \n")
 except:
     None
+    
 try:
  if BancosNal != 0:
-    respuesta.write(str(BancosNal) + " Se deben a Bancos Nacionales al día: " + a + " \n")    
+    respuesta.write(str(BancosNal) + " Se deben a Bancos nacionales al día: " + a + " \n")    
 except:
     None
+    
 try:
  if BancosExtra!= 0:
-    respuesta.write(str(BancosExtra) + " Se deben a Bancos Extranjeros al día: " + a + " \n")    
+    respuesta.write(str(BancosExtra) + " Se deben a Bancos extranjeros al día: " + a + " \n")    
 except:
     None
+    
 try:
  if ProveedoresNal != 0:
-    respuesta.write(str(ProveedoresNal) + " Se deben a Proveedores Nacionales al día: " + a + " \n")    
+    respuesta.write(str(ProveedoresNal) + " Se deben a Proveedores nacionales al día: " + a + " \n")    
 except:
     None
+    
 try:
  if ProveedoresExt!= 0:
-    respuesta.write(str(ProveedoresExt) + " Se deben a Proveedores Extranjeros  al día: " + a + " \n")
+    respuesta.write(str(ProveedoresExt) + " Se deben a Proveedores extranjeros  al día: " + a + " \n")
 except:
     None
+
+
 
 lectura.close()    
 respuesta.close()
