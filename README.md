@@ -1,6 +1,20 @@
 b = int(input("Si posee una cuenta en curso ingrese 1 , para empezar una nueva cuenta, ingrese 0: "))
-a = input("Digite el nombre del archivo que posee las nuevas transacciones: ")
-
+g = int(input("Para crear un archivo digite 0, para subir un archivo digite 1: "))
+if g == 1:
+   a = input("Digite el nombre del archivo que posee las transacciones: ")
+else:
+   h = int(input("Digite el número de transacciones a declarar: "))
+   f = input("Digite la fecha de la transacción a digitar")
+   v = f +".txt"
+   hola = open(v,"w")
+   hola.write("FECHA      CODIGO      VALOR \n")
+   for i in range (0,h):
+       r = input("Digite el código a declarar: ")
+       d = input("Digite el valor del código: ")
+       hola.write(f + "      "+r+"      "+d+"\n")
+   hola.close()
+   a = v
+   
 if b == 0 :
     caja = 0
     apSocial = 0
