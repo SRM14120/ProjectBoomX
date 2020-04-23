@@ -30,14 +30,12 @@ if b == 0 :
     ProveedoresNal = 0
     ProveedoresExt = 0
     Licencias = 0
-    CapitalA = 0
-    AportesE = 0
-    FondoSoci = 0
-    Donaciones = 0
-    AjustesInfl = 0
-    Utilidad = 0
-    Perdidas = 0
-    Valorizaciones = 0
+    Patentes = 0
+    DeudasSocios = 0
+    AcreedoresVa = 0
+    RteFte = 0
+    ImpRenta = 0
+    ImpValor = 0
     
 elif b ==1 :
     historial = open("Obri.txt","r+")
@@ -70,22 +68,18 @@ elif b ==1 :
              ProveedoresExt = int(i.split()[0])
         elif i.split()[4] == "Licencias":
              Licencias = int(i.split()[0])
-        elif i.split()[4] == "Capital":
-             CapitalA = int(i.split()[0])
-        elif i.split()[4] == "Aportes":
-             AportesE = int(i.split()[0])
-        elif i.split()[4] == "Fondos":
-             FondoSoci = int(i.split()[0])
-        elif i.split()[4] == "Donaciones":
-             Donaciones = int(i.split()[0])
-        elif i.split()[4] == "Ajustes":
-             AjustesInfl = int(i.split()[0])
-        elif i.split()[4] == "Utilidad":
-             Utilidad = int(i.split()[0])
-        elif i.split()[4] == "Pérdidas":
-             Perdidas = int(i.split()[0])
-        elif i.split()[4] == "Valorizaciones":
-             Valorizaciones = int(i.split()[0])
+        elif i.split()[4] == "Patentes":
+             Patentes = int(i.split()[0])
+        elif i.split()[4] == "Deudas" and i.split[6] == "socios":
+             DeudasSocios = int(i.split()[0])
+        elif i.split()[4] == "Acreedores" and i.split[5] == "varios":
+             AcreedoresVa = int(i.split()[0])
+        elif i.split()[4] == "Retencion" and i.split[7] == "fuente":
+             RteFte = int(i.split()[0])
+        elif i.split()[4] == "Impuesto" and i.split[6] == "renta":
+             ImpRenta = int(i.split()[0])
+        elif i.split()[4] == "Impuesto" and i.split[6] == "valorizacion":
+             ImpValor = int(i.split()[0])
              
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -176,55 +170,47 @@ for i in lectura:
        except:
             Licencias = 0
             Licencias += int(i.split()[2])
-     elif i.split()[1] == "3120":
+    elif i.split()[1] == "1615":
        try:
-            CapitalA += int(i.split()[2])
+            Patentes += int(i.split()[2])
        except:
-            CapitalA = 0
-            CapitalA += int(i.split()[2])
-      elif i.split()[1] == "3135":
+            Patentes = 0
+            Patentes += int(i.split()[2])
+    elif i.split()[1] == "2355":
        try:
-            AportesE += int(i.split()[2])
+            DeudasSocios += int(i.split()[2])
        except:
-            AportesE = 0
-            AportesE += int(i.split()[2])
-      elif i.split()[1] == "3140":
+            DeudasSocios = 0
+            DeudasSocios += int(i.split()[2])
+      
+   elif i.split()[1] == "2380":
        try:
-            FondoSoci += int(i.split()[2])
+            AcreedoresVa += int(i.split()[2])
        except:
-            FondoSoci = 0
-            FondoSoci += int(i.split()[2])
-      elif i.split()[1] == "3210":
+            AcreedoresVa = 0
+            AcreedoresVa += int(i.split()[2])
+          
+   elif i.split()[1] == "2365":
        try:
-            Donaciones += int(i.split()[2])
+            RteFte += int(i.split()[2])
        except:
-            Donaciones = 0
-            Donaciones += int(i.split()[2])
-      elif i.split()[1] == "3405":
+            RteFte = 0
+            RteFte += int(i.split()[2])
+
+   elif i.split()[1] == "2404":
        try:
-            AjustesInfl += int(i.split()[2])
+            ImpRenta += int(i.split()[2])
        except:
-            AjustesInfl = 0
-            AjustesInfl += int(i.split()[2])
-      elif i.split()[1] == "3605":
+            ImpRenta = 0
+            ImpRenta += int(i.split()[2])
+
+   elif i.split()[1] == "2424":
        try:
-            Utilidad += int(i.split()[2])
+            ImpValor += int(i.split()[2])
        except:
-            Utilidad = 0
-            Utilidad += int(i.split()[2])
-      elif i.split()[1] == "3610":
-       try:
-            Perdidas += int(i.split()[2])
-       except:
-            Perdidas = 0
-            Perdidas += int(i.split()[2])
-      elif i.split()[1] == "3810":
-       try:
-            Valorizaciones += int(i.split()[2])
-       except:
-            Valorizaciones = 0
-            Valorizaciones += int(i.split()[2])
-       
+            ImpValor = 0
+            ImpValor += int(i.split()[2])
+
 try:        
   if caja != 0:
     respuesta.write(str(caja) + " Se poseen en caja al día: " + a + " \n")
@@ -311,52 +297,41 @@ except:
     None
 
 try:
- if CapitalA != 0:
-    respuesta.write(str(CapitalA) + " Se archivan a Capital Asignado al día: " + a + " \n")
-except:
-    None
-    
-try:
- if AportesE != 0:
-    respuesta.write(str(AportesE) + " Se archivan a Aportes del Estado al día: " + a + " \n")
+ if Patentes != 0:
+    respuesta.write(str(Patentes) + " Se poseen en Patentes al día: " + a + " \n")
 except:
     None
 
 try:
- if FondoSoci != 0:
-    respuesta.write(str(FondoSoci) + " Se archivan a Fondo Social al día: " + a + " \n")
+ if DeudasSocios != 0:
+    respuesta.write(str(DeudasSocios) + " Se deben a Deudas con socios al día: " + a + " \n")
 except:
     None
     
 try:
- if Donaciones != 0:
-    respuesta.write(str(Donaciones) + " Se archivan a Donaciones al día: " + a + " \n")
+ if AcreedoresVa != 0:
+    respuesta.write(str(AcreedoresVa) + " Se deben a Acreedores varios al día: " + a + " \n")
 except:
-    None 
-  
-try:
- if AjustesInfl != 0:
-    respuesta.write(str(AjustesInfl) + " Se archivan a Ajustes por inflación al día: " + a + " \n")
-except:
-    None 
-  
-try:
- if Utilidad != 0:
-    respuesta.write(str(Utilidad) + " Se archivan a Utilidades al día: " + a + " \n")
-except:
-    None   
+    None
 
 try:
- if Perdidas != 0:
-    respuesta.write(str(Perdidas) + " Se archivan a Pérdidas al día: " + a + " \n")
+ if RteFte != 0:
+    respuesta.write(str(RteFte) + " Se deben a Retencion en la fuente al día: " + a + " \n")
 except:
-    None 
- 
+    None
+    
 try:
- if Valorizaciones!= 0:
-    respuesta.write(str(Valorizaciones) + " Se archivan a Valorizaciones al día: " + a + " \n")
+ if ImpRenta != 0:
+    respuesta.write(str(ImpRenta) + " Se deben a Impuesto de renta al día: " + a + " \n")
 except:
-    None 
+    None
+
+try:
+ if ImpValor != 0:
+    respuesta.write(str(ImpValor) + " Se deben a Impuesto de valorizacion al día: " + a + " \n")
+except:
+    None
+
     
 lectura.close()    
 respuesta.close()
