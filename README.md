@@ -37,7 +37,7 @@ if b == 0 :
     AjustesInfl = 0
     Utilidad = 0
     Perdidas = 0
-    Valorizaaciones = 0
+    Valorizaciones = 0
     
 elif b ==1 :
     historial = open("Obri.txt","r+")
