@@ -36,6 +36,14 @@ if b == 0 :
     RteFte = 0
     ImpRenta = 0
     ImpValor = 0
+    CapitalA = 0
+    AportesE = 0
+    FondoSoci = 0
+    Donaciones = 0
+    AjustesInfl = 0
+    Utilidad = 0
+    Perdidas = 0
+    Valorizaciones = 0
     
 elif b ==1 :
     historial = open("Obri.txt","r+")
@@ -80,6 +88,22 @@ elif b ==1 :
              ImpRenta = int(i.split()[0])
         elif i.split()[4] == "Impuesto" and i.split[6] == "valorizacion":
              ImpValor = int(i.split()[0])
+        elif i.split()[4] == "Capital":
+             CapitalA = int(i.split()[0])
+        elif i.split()[4] == "Aportes":
+             AportesE = int(i.split()[0])
+        elif i.split()[4] == "Fondos":
+             FondoSoci = int(i.split()[0])
+        elif i.split()[4] == "Donaciones":
+             Donaciones = int(i.split()[0])
+        elif i.split()[4] == "Ajustes":
+             AjustesInfl = int(i.split()[0])
+        elif i.split()[4] == "Utilidad":
+             Utilidad = int(i.split()[0])
+        elif i.split()[4] == "Pérdidas":
+             Perdidas = int(i.split()[0])
+        elif i.split()[4] == "Valorizaciones":
+             Valorizaciones = int(i.split()[0])
              
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -210,6 +234,54 @@ for i in lectura:
        except:
             ImpValor = 0
             ImpValor += int(i.split()[2])
+    elif i.split()[1] == "3120":
+       try:
+            CapitalA += int(i.split()[2])
+       except:
+            CapitalA = 0
+            CapitalA += int(i.split()[2])
+    elif i.split()[1] == "3135":
+       try:
+            AportesE += int(i.split()[2])
+       except:
+            AportesE = 0
+            AportesE += int(i.split()[2])
+    elif i.split()[1] == "3140":
+       try:
+            FondoSoci += int(i.split()[2])
+       except:
+            FondoSoci = 0
+            FondoSoci += int(i.split()[2])
+    elif i.split()[1] == "3210":
+       try:
+            Donaciones += int(i.split()[2])
+       except:
+            Donaciones = 0
+            Donaciones += int(i.split()[2])
+    elif i.split()[1] == "3405":
+       try:
+            AjustesInfl += int(i.split()[2])
+       except:
+            AjustesInfl = 0
+            AjustesInfl += int(i.split()[2])
+    elif i.split()[1] == "3605":
+       try:
+            Utilidad += int(i.split()[2])
+       except:
+            Utilidad = 0
+            Utilidad += int(i.split()[2])
+    elif i.split()[1] == "3610":
+       try:
+            Perdidas += int(i.split()[2])
+       except:
+            Perdidas = 0
+            Perdidas += int(i.split()[2])
+    elif i.split()[1] == "3810":
+       try:
+            Valorizaciones += int(i.split()[2])
+       except:
+            Valorizaciones = 0
+            Valorizaciones += int(i.split()[2])
 
 try:        
   if caja != 0:
@@ -329,6 +401,54 @@ except:
 try:
  if ImpValor != 0:
     respuesta.write(str(ImpValor) + " Se deben a Impuesto de valorizacion al día: " + a + " \n")
+except:
+    None
+    
+try:
+ if CapitalA != 0:
+    respuesta.write(str(CapitalA) + " Se archivan a Capital Asignado al día: " + a + " \n")
+except:
+    None
+    
+try:
+ if AportesE != 0:
+    respuesta.write(str(AportesE) + " Se archivan a Aportes del Estado al día: " + a + " \n")
+except:
+    None
+
+try:
+ if FondoSoci != 0:
+    respuesta.write(str(FondoSoci) + " Se archivan a Fondo Social al día: " + a + " \n")
+except:
+    None
+    
+try:
+ if Donaciones != 0:
+    respuesta.write(str(Donaciones) + " Se archivan a Donaciones al día: " + a + " \n")
+except:
+    None 
+  
+try:
+ if AjustesInfl != 0:
+    respuesta.write(str(AjustesInfl) + " Se archivan a Ajustes por inflación al día: " + a + " \n")
+except:
+    None 
+  
+try:
+ if Utilidad != 0:
+    respuesta.write(str(Utilidad) + " Se archivan a Utilidades al día: " + a + " \n")
+except:
+    None   
+
+try:
+ if Perdidas != 0:
+    respuesta.write(str(Perdidas) + " Se archivan a Pérdidas al día: " + a + " \n")
+except:
+    None 
+ 
+try:
+ if Valorizaciones!= 0:
+    respuesta.write(str(Valorizaciones) + " Se archivan a Valorizaciones al día: " + a + " \n")
 except:
     None
 
