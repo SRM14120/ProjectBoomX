@@ -29,7 +29,7 @@ if b == 0 :
     BancosExtra = 0
     ProveedoresNal = 0
     ProveedoresExt = 0
-    
+    Licencias = 0
 elif b ==1 :
     historial = open("Obri.txt","r+")
     for i in historial:
@@ -59,6 +59,8 @@ elif b ==1 :
              ProveedoresNal = int(i.split()[0])
         elif i.split()[4] == "Proveedores" and i.split()[5] == "extranjeros":
              ProveedoresExt = int(i.split()[0])
+        elif i.split()[4] == "Licencias":
+             Licencias = int(i.split()[0])
 
 
 lectura = open(a,"r")
@@ -144,6 +146,12 @@ for i in lectura:
        except:
             ProveedoresExt = 0
             ProveedoresExt += int(i.split()[2])
+    elif i.split()[1] == "1635":
+       try:
+            Licencias += int(i.split()[2])
+       except:
+            Licencias = 0
+            Licencias += int(i.split()[2])
     
 
 try:        
@@ -221,6 +229,13 @@ except:
 try:
  if ProveedoresExt!= 0:
     respuesta.write(str(ProveedoresExt) + " Se deben a Proveedores extranjeros  al día: " + a + " \n")
+except:
+    None
+   
+ 
+try:
+ if Licencias != 0:
+    respuesta.write(str(Licencias) + " Se poseen en Licencias al día: " + a + " \n")
 except:
     None
 
