@@ -207,28 +207,28 @@ for i in lectura:
             DeudasSocios = 0
             DeudasSocios += int(i.split()[2])
       
-   elif i.split()[1] == "2380":
+    elif i.split()[1] == "2380":
        try:
             AcreedoresVa += int(i.split()[2])
        except:
             AcreedoresVa = 0
             AcreedoresVa += int(i.split()[2])
           
-   elif i.split()[1] == "2365":
+    elif i.split()[1] == "2365":
        try:
             RteFte += int(i.split()[2])
        except:
             RteFte = 0
             RteFte += int(i.split()[2])
 
-   elif i.split()[1] == "2404":
+    elif i.split()[1] == "2404":
        try:
             ImpRenta += int(i.split()[2])
        except:
             ImpRenta = 0
             ImpRenta += int(i.split()[2])
 
-   elif i.split()[1] == "2424":
+    elif i.split()[1] == "2424":
        try:
             ImpValor += int(i.split()[2])
        except:
