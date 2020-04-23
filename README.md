@@ -48,6 +48,14 @@ if b == 0 :
     Proviciones = 0
     Materias = 0
     ProductosT = 0
+    ImpVehiculo = 0
+    ImpLicores = 0
+    SalariosPagar = 0
+    Cesantias = 0
+    Prima = 0
+    Prestaciones = 0
+    Indemnizaciones = 0
+    PenJubilacion = 0
     
 elif b ==1 :
     historial = open("Obri.txt","r+")
@@ -116,6 +124,23 @@ elif b ==1 :
              Valorizaciones = int(i.split()[0])
         elif i.split()[4] == "impuesto" and i.split()[6] == "renta":
              ImpRenta = int(i.split()[0])
+        elif i.split()[4] == "impuesto" and i.split()[6] == "vehiculos":
+             ImpVehiculo = int(i.split()[0])
+        elif i.split()[4] == "impuesto" and i.split()[6] == "licores":
+             ImpLicores = int(i.split()[0])
+        elif i.split()[4] == "salarios" and i.split()[6] == "pagar":
+             SalariosPagar = int(i.split()[0])
+        elif i.split()[4] == "cesantias" :
+             Cesantias = int(i.split()[0])
+        elif i.split()[4] == "prima" :
+             Prima = int(i.split()[0])
+        elif i.split()[4] == "prestaciones" :
+             Prestaciones = int(i.split()[0])
+        elif i.split()[4] == "indemnizaciones" :
+             Indemnizaciones = int(i.split()[0])
+        elif i.split()[4] == "pensiones" and i.split()[6] == "jubilacion":
+             PenJubilacion = int(i.split()[0])
+        
              
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -318,6 +343,54 @@ for i in lectura:
        except:
             ProductosT = 0
             ProductosT += int(i.split()[2])
+    elif i.split()[1] == "2436":
+       try:
+            ImpVehiculo += int(i.split()[2])
+       except:
+            ImpVehiculo = 0
+            ImpVehiculo += int(i.split()[2])
+    elif i.split()[1] == "2464":
+       try:
+            ImpLicores += int(i.split()[2])
+       except:
+            ImpLicores = 0
+            ImpLicores += int(i.split()[2])
+    elif i.split()[1] == "2505":
+       try:
+            SalariosPagar += int(i.split()[2])
+       except:
+            SalariosPagar = 0
+            SalariosPagar += int(i.split()[2])
+    elif i.split()[1] == "2510":
+       try:
+            Cesantias += int(i.split()[2])
+       except:
+            Cesantias = 0
+            Cesantias += int(i.split()[2])
+    elif i.split()[1] == "2520":
+       try:
+            Prima += int(i.split()[2])
+       except:
+            Prima = 0
+            Prima += int(i.split()[2])
+    elif i.split()[1] == "2530":
+       try:
+            Prestaciones += int(i.split()[2])
+       except:
+            Prestaciones = 0
+            Prestaciones += int(i.split()[2])
+    elif i.split()[1] == "2540":
+       try:
+            Indemnizaciones += int(i.split()[2])
+       except:
+            Indemnizaciones = 0
+            Indemnizaciones += int(i.split()[2])
+    elif i.split()[1] == "2620":
+       try:
+            PenJubilacion += int(i.split()[2])
+       except:
+            PenJubilacion = 0
+            PenJubilacion += int(i.split()[2])
             
 print(ImpRenta)
                     
@@ -510,6 +583,46 @@ except:
 try:
     if ImpRenta != 0:
         respuesta.write(str(ImpRenta)+" Se deben a impuesto de renta al día: " + a + "\n")
+except:
+    None
+try:
+    if ImpVehiculo != 0:
+        respuesta.write(str(ImpVehiculo)+" Se deben a impuesto de vehiculos al dia:  " + a + "\n")
+except:
+    None
+try:
+    if ImpLicores != 0:
+        respuesta.write(str(ImpLicores)+" Se deben a impuesto de licores y cigarrillos al día: " + a + "\n")
+except:
+    None
+try:
+    if SalariosPagar != 0:
+        respuesta.write(str(SalariosPagar)+" Se deben a salarios por pagar al día: " + a + "\n")
+except:
+    None
+try:
+    if Cesantias != 0:
+        respuesta.write(str(Cesantias)+" Se deben a cesantias al día: " + a + "\n")
+except:
+    None
+try:
+    if Prima != 0:
+        respuesta.write(str(Prima)+" Se deben a prima al día: " + a + "\n")
+except:
+    None
+try:
+    if Prestaciones != 0:
+        respuesta.write(str(Prestaciones)+" Se deben a prestaciones al día: " + a + "\n")
+except:
+    None
+try:
+    if Indemnizaciones != 0:
+        respuesta.write(str(Indemnizaciones)+" Se deben a indemnizaciones al día: " + a + "\n")
+except:
+    None
+try:
+    if PenJubilacion != 0:
+        respuesta.write(str(PenJubilacion)+" Se deben a pensiones de jubilacion al día: " + a + "\n")
 except:
     None
 
