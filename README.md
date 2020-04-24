@@ -76,8 +76,8 @@ elif b ==1 :
              Maquinaria = int(i.split()[0])
         elif i.split()[4] == "Equipos" and i.split()[6] == "computo":
              EquiposCompu= int(i.split()[0])
-        elif i.split()[4] == "Equipos" and i.split()[6] == "oficina":
-             EquiposDeOficina = int(i.split()[0])
+        elif i.split()[4] == "equipos" and i.split()[6] == "oficina":
+             EquipoDeOficina = int(i.split()[0])
         elif i.split()[4] == "Bancos" and i.split()[5] == "nacionales":
              BancosNal = int(i.split()[0])
         elif i.split()[4] == "Bancos" and i.split()[5] == "extranjeros":
@@ -195,12 +195,6 @@ for i in lectura:
         except:
             EquiposCompu = 0
             EquiposCompu += int(i.split()[2])
-    elif i.split()[1] == "1524" :
-        try:
-            EquipoDeOficina += int(i.split()[2])
-        except:
-            EquipoDeOficina = 0
-            EquipoDeOficina += int(i.split()[2])
     elif i.split()[1] == "2105":
         try:
             BancosNal += int(i.split()[2])
@@ -391,9 +385,13 @@ for i in lectura:
        except:
             PenJubilacion = 0
             PenJubilacion += int(i.split()[2])
-            
-print(ImpRenta)
-                    
+    elif i.split()[1] == "1524":
+        try:
+            EquipoDeOficina += int(i.split()[2])
+        except:
+            EquipoDeOficina = 0
+            EquipoDeOficina += int(i.split()[2])
+               
 try:        
   if caja != 0:
     respuesta.write(str(caja) + " Se poseen en caja al día: " + a + " \n")
@@ -441,13 +439,7 @@ try:
     respuesta.write(str(EquiposCompu) + " Se poseen en Equipos de computo y comunicaciones al día: " + a + " \n")
 except:
     None
-    
-try:
- if EquipoDeOficina != 0:
-    respuesta.write(str(EquipoDeOficina) + " Se poseen en Equipos de oficina al día: " + a + " \n")
-except:
-    None
-    
+        
 try:
  if BancosNal != 0:
     respuesta.write(str(BancosNal) + " Se deben a Bancos nacionales al día: " + a + " \n")    
@@ -626,5 +618,12 @@ try:
 except:
     None
 
+try:
+    if EquipoDeOficina != 0:
+        respuesta.write(str(EquipoDeOficina)+" Se poseen en equipos de oficina al día: " + a + "\n")
+except:
+    None
+
 lectura.close()    
 respuesta.close()
+
