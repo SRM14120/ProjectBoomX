@@ -4,7 +4,7 @@ if g == 1:
    a = input("Digite el nombre del archivo que posee las transacciones: ")
 else:
    h = int(input("Digite el número de transacciones a declarar: "))
-   f = input("Digite la fecha de la transacción a digitar")
+   f = input("Digite la fecha de la transacción a digitar: ")
    v = f +".txt"
    hola = open(v,"w")
    hola.write("FECHA      CODIGO      VALOR \n")
@@ -14,8 +14,12 @@ else:
        hola.write(f + "      "+r+"      "+d+"\n")
    hola.close()
    a = v
+   
 
 if b == 0 :
+    Activos = 0
+    Pasivos = 0
+    Patrimonio = 0
     caja = 0
     apSocial = 0
     bancos = 0
@@ -58,89 +62,91 @@ if b == 0 :
     PenJubilacion = 0
     
 elif b ==1 :
+    Activos = 0
+    Pasivos = 0
+    Patrimonio = 0
     historial = open("Obri.txt","r+")
     for i in historial:
-        if i.split()[4] == "caja":
-            caja = int(i.split()[0])
-        elif i.split()[4] == "aporte":
-            apSocial = int(i.split()[0])
-        elif i.split()[4] == "bancos":
-            bancos = int(i.split()[0])
-        elif i.split()[4] == "Mercancias":
-             MercanciasNF = int(i.split()[0])
-        elif i.split()[4] == "Terrenos":
-             Terrenos = int(i.split()[0])
-        elif i.split()[4] == "Construcciones":
-             Construcciones = int(i.split()[0])
-        elif i.split()[4] == "Maquinaria":
-             Maquinaria = int(i.split()[0])
-        elif i.split()[4] == "Equipos" and i.split()[6] == "computo":
-             EquiposCompu= int(i.split()[0])
-        elif i.split()[4] == "equipos" and i.split()[6] == "oficina":
-             EquipoDeOficina = int(i.split()[0])
-        elif i.split()[4] == "Bancos" and i.split()[5] == "nacionales":
-             BancosNal = int(i.split()[0])
-        elif i.split()[4] == "Bancos" and i.split()[5] == "extranjeros":
-             BancosExtra = int(i.split()[0])
-        elif i.split()[4] == "Proveedores" and i.split()[5] == "nacionales":
-             ProveedoresNal = int(i.split()[0])
-        elif i.split()[4] == "Proveedores" and i.split()[5] == "extranjeros":
-             ProveedoresExt = int(i.split()[0])
-        elif i.split()[4] == "Licencias":
-             Licencias = int(i.split()[0])
-        elif i.split()[4] == "Patentes":
-             Patentes = int(i.split()[0])
-        elif i.split()[4] == "Deudas":
-             DeudasSocios = int(i.split()[0])
-        elif i.split()[4] == "Acreedores":
-             AcreedoresVa = int(i.split()[0])
-        elif i.split()[4] == "Retencion":
-             RteFte = int(i.split()[0])
-        elif i.split()[4] == "Impuesto" and i.split()[6] == "valorizacion":
-             ImpValor = int(i.split()[0])
-        elif i.split()[4] == "Capital":
-             CapitalA = int(i.split()[0])
-        elif i.split()[4] == "Aportes":
-             AportesE = int(i.split()[0])
-        elif i.split()[4] == "Fondo":
-             FondoSoci = int(i.split()[0])
-        elif i.split()[4] == "Donaciones":
-             Donaciones = int(i.split()[0])
-        elif i.split()[4] == "Ajustes":
-             AjustesInfl = int(i.split()[0])
-        elif i.split()[4] == "Utilidad":
-             Utilidad = int(i.split()[0])
-        elif i.split()[4] == "Pérdidas":
-             Perdidas = int(i.split()[0])
-        elif i.split()[4] == "Equipos" and i.split()[6] == "transportes":
-             EquipoTrans = int(i.split()[0])
-        elif i.split()[4] == "Proviciones":
-             Proviciones = int(i.split()[0])
-        elif i.split()[4] == "Materias":
-             Materias = int(i.split()[0])
-        elif i.split()[4] == "Productos":
-             ProductosT = int(i.split()[0])
-        elif i.split()[4] == "Valorizaciones":
-             Valorizaciones = int(i.split()[0])
-        elif i.split()[4] == "impuesto" and i.split()[6] == "renta":
-             ImpRenta = int(i.split()[0])
-        elif i.split()[4] == "impuesto" and i.split()[6] == "vehiculos":
-             ImpVehiculo = int(i.split()[0])
-        elif i.split()[4] == "impuesto" and i.split()[6] == "licores":
-             ImpLicores = int(i.split()[0])
-        elif i.split()[4] == "salarios" and i.split()[6] == "pagar":
-             SalariosPagar = int(i.split()[0])
-        elif i.split()[4] == "cesantias" :
-             Cesantias = int(i.split()[0])
-        elif i.split()[4] == "prima" :
-             Prima = int(i.split()[0])
-        elif i.split()[4] == "prestaciones" :
-             Prestaciones = int(i.split()[0])
-        elif i.split()[4] == "indemnizaciones" :
-             Indemnizaciones = int(i.split()[0])
-        elif i.split()[4] == "pensiones" and i.split()[6] == "jubilacion":
-             PenJubilacion = int(i.split()[0])
-        
+        if i.split()[0] == "1105":
+            caja = int(i.split()[3])
+        elif i.split()[0] == "3115":
+            apSocial = int(i.split()[4])
+        elif i.split()[0] == "1110":
+            bancos = int(i.split()[3])
+        elif i.split()[0] == "1435":
+             MercanciasNF = int(i.split()[3])
+        elif i.split()[0] == "1504":
+             Terrenos = int(i.split()[3])
+        elif i.split()[0] == "1516":
+             Construcciones = int(i.split()[3])
+        elif i.split()[0] == "1520":
+             Maquinaria = int(i.split()[3])
+        elif i.split()[0] == "1528":
+             EquiposCompu= int(i.split()[5])
+        elif i.split()[0] == "1524":
+             EquipoDeOficina = int(i.split()[5])
+        elif i.split()[0] == "2105":
+             BancosNal = int(i.split()[4])
+        elif i.split()[0] == "2110":
+             BancosExtra = int(i.split()[4])
+        elif i.split()[0] == "2205":
+             ProveedoresNal = int(i.split()[4])
+        elif i.split()[0] == "2210":
+             ProveedoresExt = int(i.split()[4])
+        elif i.split()[0] == "1635":
+             Licencias = int(i.split()[3])
+        elif i.split()[0] == "1615":
+             Patentes = int(i.split()[3])
+        elif i.split()[0] == "2355":
+             DeudasSocios = int(i.split()[5])
+        elif i.split()[0] == "2380":
+             AcreedoresVa = int(i.split()[4])
+        elif i.split()[0] == "2365":
+             RteFte = int(i.split()[6])
+        elif i.split()[0] == "2424":
+             ImpValor = int(i.split()[4])
+        elif i.split()[0] == "3120":
+             CapitalA = int(i.split()[4])
+        elif i.split()[0] == "3135":
+             AportesE = int(i.split()[5])
+        elif i.split()[0] == "3140":
+             FondoSoci = int(i.split()[4])
+        elif i.split()[0] == "3210":
+             Donaciones = int(i.split()[3])
+        elif i.split()[0] == "3405":
+             AjustesInfl = int(i.split()[5])
+        elif i.split()[0] == "3605":
+             Utilidad = int(i.split()[3])
+        elif i.split()[0] == "3610":
+             Perdidas = int(i.split()[3])
+        elif i.split()[0] == "1540":
+             EquipoTrans = int(i.split()[5])
+        elif i.split()[0] == "1599":
+             Proviciones = int(i.split()[3])
+        elif i.split()[0] == "1405":
+             Materias = int(i.split()[4])
+        elif i.split()[0] == "1430":
+             ProductosT = int(i.split()[4])
+        elif i.split()[0] == "3810":
+             Valorizaciones = int(i.split()[3])
+        elif i.split()[0] == "2404":
+             ImpRenta = int(i.split()[5])
+        elif i.split()[0] == "2435":
+             ImpVehiculo = int(i.split()[5])
+        elif i.split()[0] == "2464":
+             ImpLicores = int(i.split()[5])
+        elif i.split()[0] == "2505":
+             SalariosPagar = int(i.split()[5])
+        elif i.split()[0] == "2510" :
+             Cesantias = int(i.split()[3])
+        elif i.split()[0] == "2520" :
+             Prima = int(i.split()[3])
+        elif i.split()[0] == "2530" :
+             Prestaciones = int(i.split()[3])
+        elif i.split()[0] == "2540" :
+             Indemnizaciones = int(i.split()[3])
+        elif i.split()[0] == "2620":
+             PenJubilacion = int(i.split()[5])
              
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -391,239 +397,287 @@ for i in lectura:
         except:
             EquipoDeOficina = 0
             EquipoDeOficina += int(i.split()[2])
+            
+            
+respuesta.write("Su resumen de cuentas al día: " + a + "\n")
+respuesta.write("Código\t\tCategoría\t\tDescripción\t\t\tValor\n")
                
 try:        
   if caja != 0:
-    respuesta.write(str(caja) + " Se poseen en caja al día: " + a + " \n")
+    respuesta.write("1105\t\tActivo\t\t\tCaja\t\t\t\t" + str(caja) + " \n")
+    Activos += caja
 except:
     None
     
 try:
  if apSocial != 0:
-    respuesta.write(str(apSocial) + " Se poseen en aporte social al día: " + a + " \n")
+    respuesta.write("3115\t\tPatrimonio\t\tAporte Social\t\t\t" + str(apSocial) + " \n")
+    Patrimonio += apSocial
 except:
     None
     
 try:
  if bancos != 0:
-    respuesta.write(str(bancos) + " Se poseen en bancos al día: " + a + " \n")
+    respuesta.write("1110\t\tActivo\t\t\tBancos\t\t\t\t" + str(bancos) + " \n")
+    Activos += bancos
 except:
     None
     
 try:
   if MercanciasNF != 0:
-    respuesta.write(str(MercanciasNF) + " Se poseen en Mercancias no fabricadas por la empresa al día: " + a + " \n")
+    respuesta.write("1435\t\tActivo\t\t\tMercancias\t\t\t" + str(MercanciasNF) + " \n")
+    Activos += MercanciasNF
 except:
     None
     
 try: 
    if  Terrenos != 0:
-    respuesta.write(str(Terrenos) + " Se poseen en Terrenos al día: " + a + " \n")
+    respuesta.write("1504\t\tActivo\t\t\tTerrenos\t\t\t" + str(Terrenos) + " \n")
+    Activos += Terrenos
 except:
     None
     
 try:
   if Construcciones != 0:
-    respuesta.write(str(Construcciones) + " Se poseen en Construcciones y edificaciones al día: " + a + " \n")
+    respuesta.write("1516\t\tActivo\t\t\tConstrucciones\t\t\t" + str(Construcciones) + " \n")
+    Activos += Construcciones
 except:
     None
     
 try:
  if Maquinaria != 0:
-    respuesta.write(str(Maquinaria) + " Se poseen en Maquinaria y Equipos al día: " + a + " \n")
+    respuesta.write("1520\t\tActivo\t\t\tMaquinaria\t\t\t" + str(Maquinaria) + " \n")
+    Activos += Maquinaria
 except:
     None
     
 try:
  if EquiposCompu != 0:
-    respuesta.write(str(EquiposCompu) + " Se poseen en Equipos de computo y comunicaciones al día: " + a + " \n")
+    respuesta.write("1528\t\tActivo\t\t\tEquipos de Computo\t\t" + str(caja) + " \n")
+    Activos += EquiposCompu
 except:
     None
         
 try:
  if BancosNal != 0:
-    respuesta.write(str(BancosNal) + " Se deben a Bancos nacionales al día: " + a + " \n")    
+    respuesta.write("2105\t\tPasivo\t\t\tBancos Nacionales\t\t" + str(BancosNal) + " \n")    
+    Pasivos += BancosNal
 except:
     None
     
 try:
- if BancosExtra!= 0:
-    respuesta.write(str(BancosExtra) + " Se deben a Bancos extranjeros al día: " + a + " \n")    
+ if BancosExtra != 0:
+    respuesta.write("2110\t\tPasivo\t\t\tBancos Extranjeros\t\t" + str(BancosExtra) + " \n")    
+    Pasivos += BancosExtra
 except:
     None
     
 try:
  if ProveedoresNal != 0:
-    respuesta.write(str(ProveedoresNal) + " Se deben a Proveedores nacionales al día: " + a + " \n")    
+    respuesta.write("2205\t\tPasivo\t\t\tProveedores Nacionales\t\t" + str(ProveedoresNal) + " \n")
+    Pasivos += ProveedoresNal    
 except:
     None
     
 try:
  if ProveedoresExt!= 0:
-    respuesta.write(str(ProveedoresExt) + " Se deben a Proveedores extranjeros  al día: " + a + " \n")
+    respuesta.write("2210\t\tPasivo\t\t\tProveedores Extranjeros\t\t" + str(ProveedoresExt) + " \n")
+    Pasivos += ProveedoresExt
 except:
     None
 
 try:
  if Licencias != 0:
-    respuesta.write(str(Licencias) + " Se poseen en Licencias al día: " + a + " \n")
+    respuesta.write("1635\t\tActivo\t\t\tLicencias\t\t\t" + str(Licencias) + " \n")
+    Activos += Licencias
 except:
     None
 
 try:
  if Patentes != 0:
-    respuesta.write(str(Patentes) + " Se poseen en Patentes al día: " + a + " \n")
+    respuesta.write("1615\t\tActivo\t\t\tPatentes\t\t\t" + str(Patentes) + " \n")
+    Activos += Patentes
 except:
     None
 
 try:
  if DeudasSocios != 0:
-    respuesta.write(str(DeudasSocios) + " Se deben a Deudas con socios al día: " + a + " \n")
+    respuesta.write("2355\t\tPasivo\t\t\tDeudas con socios\t\t" + str(DeudasSocios) + " \n")
+    Pasivos += DeudasSocios
 except:
     None
     
 try:
  if AcreedoresVa != 0:
-    respuesta.write(str(AcreedoresVa) + " Se deben a Acreedores varios al día: " + a + " \n")
+    respuesta.write("2380\t\tPasivo\t\t\tAcreedores Varios\t\t" + str(AcreedoresVa) + " \n")
+    Pasivos += AcreedoresVa
 except:
     None
 
 try:
  if RteFte != 0:
-    respuesta.write(str(RteFte) + " Se deben de Retencion en la fuente al día: " + a + " \n")
+    respuesta.write("2365\t\tPasivo\t\t\tRetención en la fuente\t\t" + str(RteFte) + " \n")
+    Pasivos += RteFte
 except:
     None
     
 try:
  if ImpValor != 0:
-    respuesta.write(str(ImpValor) + " Se deben a Impuesto de valorizacion al día: " + a + " \n")
+    respuesta.write("2424\t\tPasivo\t\t\tImpuesto valorización\t\t" + str(ImpValor) + " \n")
+    Pasivos += ImpValor
 except:
     None
     
 try:
  if CapitalA != 0:
-    respuesta.write(str(CapitalA) + " Se archivan a Capital Asignado al día: " + a + " \n")
+    respuesta.write("3120\t\tPatrimonio\t\tCapital Asignado\t\t" + str(CapitalA) + " \n")
+    Patrimonio += CapitalA
 except:
     None
     
 try:
  if AportesE != 0:
-    respuesta.write(str(AportesE) + " Se archivan a Aportes del Estado al día: " + a + " \n")
+    respuesta.write("3135\t\tPatrimonio\t\tAportes del Estado\t\t" + str(AportesE) + " \n")
+    Patrimonio += AportesE
 except:
     None
 
 try:
  if FondoSoci != 0:
-    respuesta.write(str(FondoSoci) + " Se archivan a Fondo Social al día: " + a + " \n")
+    respuesta.write("3140\t\tPatrimonio\t\tFondo Social\t\t\t" + str(FondoSoci) + " \n")
+    Patrimonio += FondoSoci
 except:
     None
     
 try:
  if Donaciones != 0:
-    respuesta.write(str(Donaciones) + " Se archivan a Donaciones al día: " + a + " \n")
+    respuesta.write("3210\t\tPatrimonio\t\tDonaciones\t\t\t" + str(Donaciones) + " \n")
+    Patrimonio += Donaciones
 except:
     None 
   
 try:
  if AjustesInfl != 0:
-    respuesta.write(str(AjustesInfl) + " Se archivan a Ajustes por inflación al día: " + a + " \n")
+    respuesta.write("3405\t\tPatrimonio\t\tAjustes por inflación\t\t" + str(AjustesInfl) + " \n")
+    Patrimonio += AjustesInfl
 except:
     None 
   
 try:
  if Utilidad != 0:
-    respuesta.write(str(Utilidad) + " Se archivan a Utilidad al día: " + a + " \n")
+    respuesta.write("3605\t\tPatrimonio\t\tUtilidad\t\t\t" + str(Utilidad) + " \n")
+    Patrimonio += Utilidad
 except:
     None   
 
 try:
  if Perdidas != 0:
-    respuesta.write(str(Perdidas) + " Se archivan a Pérdidas al día: " + a + " \n")
+    respuesta.write("3610\t\tPatrimonio\t\tPérdidas\t\t\t" + str(Perdidas) + " \n")
+    Patrimonio += Perdidas
 except:
     None 
  
 try:
  if Valorizaciones!= 0:
-    respuesta.write(str(Valorizaciones) + " Se archivan a Valorizaciones al día: " + a + " \n")
+    respuesta.write("3810\t\tPatrimonio\t\tValorizaciones\t\t\t" + str(Valorizaciones) + " \n")
+    Patrimonio += Valorizaciones
 except:
     None
 
 try:
  if EquipoTrans != 0:
-    respuesta.write(str(EquipoTrans) + " Se poseen en Equipos de transportes al día: " + a + " \n")
+    respuesta.write("1540\t\tActivo\t\t\tEquipo de Transportes\t\t" + str(BancosNal) + " \n")
+    Activos += EquipoTrans
 except:
     None
     
 try:
  if Proviciones != 0:
-    respuesta.write(str(Proviciones) + " Se poseen en Proviciones al día: " + a + " \n")
+    respuesta.write("1599\t\tActivo\t\t\tProviciones\t\t\t" + str(Proviciones) + " \n")
+    Activos += Proviciones
 except:
     None
     
 try:
  if Materias != 0:
-    respuesta.write(str(Materias) + " Se poseen en Materias primas al día: " + a + " \n")
+    respuesta.write("1405\t\tActivo\t\t\tMaterias Primas\t\t\t" + str(Materias) + " \n")
+    Activos += Materias
 except:
     None
     
 try:
  if ProductosT != 0:
-    respuesta.write(str(ProductosT) + " Se poseen en Productos terminados al día: " + a + " \n")
+    respuesta.write("1430\t\tActivo\t\t\tProductos terminados\t\t" + str(ProductosT) + " \n")
+    Activos += ProductosT
 except:
     None
     
 try:
-    if ImpRenta != 0:
-        respuesta.write(str(ImpRenta)+" Se deben a impuesto de renta al día: " + a + "\n")
+  if ImpRenta != 0:
+        respuesta.write("2404\t\tPasivo\t\t\tImpuesto de renta\t\t" + str(ImpRenta) + " \n")
+        Pasivos += ImpRenta
+        
 except:
     None
 try:
     if ImpVehiculo != 0:
-        respuesta.write(str(ImpVehiculo)+" Se deben a impuesto de vehiculos al dia:  " + a + "\n")
+        respuesta.write("2435\t\tPasivo\t\t\tImpuesto de vehiculo\t\t" + str(ImpVehiculo) + " \n")
+        Pasivos += ImpVehiculo
 except:
     None
 try:
     if ImpLicores != 0:
-        respuesta.write(str(ImpLicores)+" Se deben a impuesto de licores y cigarrillos al día: " + a + "\n")
+        respuesta.write("2464\t\tPasivo\t\t\tImpuesto de Licores\t\t" + str(ImpLicores) + " \n")
+        Pasivos += ImpLicores
 except:
     None
 try:
     if SalariosPagar != 0:
-        respuesta.write(str(SalariosPagar)+" Se deben a salarios por pagar al día: " + a + "\n")
+        respuesta.write("2505\t\tPasivo\t\t\tSalarios por pagar\t\t" + str(BancosNal) + " \n")
+        Pasivos += SalariosPagar
 except:
     None
 try:
     if Cesantias != 0:
-        respuesta.write(str(Cesantias)+" Se deben a cesantias al día: " + a + "\n")
+        respuesta.write("2510\t\tPasivo\t\t\tCesantias\t\t\t" + str(Cesantias) + " \n")
+        Pasivos += Cesantias
 except:
     None
 try:
     if Prima != 0:
-        respuesta.write(str(Prima)+" Se deben a prima al día: " + a + "\n")
+        respuesta.write("2520\t\tPasivo\t\t\tPrima\t\t\t\t" + str(Prima) + " \n")
+        Pasivos += Prima
 except:
     None
 try:
     if Prestaciones != 0:
-        respuesta.write(str(Prestaciones)+" Se deben a prestaciones al día: " + a + "\n")
+        respuesta.write("2530\t\tPasivo\t\t\tPrestaciones\t\t\t" + str(Prestaciones) + " \n")
+        Pasivos += Prestaciones
 except:
     None
 try:
     if Indemnizaciones != 0:
-        respuesta.write(str(Indemnizaciones)+" Se deben a indemnizaciones al día: " + a + "\n")
+        respuesta.write("2540\t\tPasivo\t\t\tIndemnizaciones\t\t\t" + str(Indemnizaciones) + " \n")
+        Pasivos += Indemnizaciones
 except:
     None
 try:
     if PenJubilacion != 0:
-        respuesta.write(str(PenJubilacion)+" Se deben a pensiones de jubilacion al día: " + a + "\n")
+        respuesta.write("2620\t\tPasivo\t\t\tPensiones de Jubulación\t\t" + str(PenJubilacion) + " \n")
+        Pasivos += PenJubilacion
 except:
     None
 
 try:
     if EquipoDeOficina != 0:
-        respuesta.write(str(EquipoDeOficina)+" Se poseen en equipos de oficina al día: " + a + "\n")
+        respuesta.write("1524\t\tActivo\t\t\tEquipo de oficina\t\t" + str(EquipoDeOficina) + " \n")
+        Activos += EquipoDeOficina
 except:
     None
 
+respuesta.write("Se poseen en Activos : " + str(Activos) + "\n")
+respuesta.write("Se poseen en Pasivos : " + str(Pasivos) + "\n")
+respuesta.write("Se archivan en Patrimonio : " + str(Patrimonio) + "\n")
+
 lectura.close()    
 respuesta.close()
-
