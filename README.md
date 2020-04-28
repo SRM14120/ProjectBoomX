@@ -453,7 +453,7 @@ except:
     
 try:
  if EquiposCompu != 0:
-    respuesta.write("1528\t\tActivo\t\t\tEquipos de Computo\t\t" + str(caja) + " \n")
+    respuesta.write("1528\t\tActivo\t\t\tEquipos de Computo\t\t" + str(EquiposCompu) + " \n")
     Activos += EquiposCompu
 except:
     None
@@ -586,7 +586,7 @@ except:
 
 try:
  if EquipoTrans != 0:
-    respuesta.write("1540\t\tActivo\t\t\tEquipo de Transportes\t\t" + str(BancosNal) + " \n")
+    respuesta.write("1540\t\tActivo\t\t\tEquipo de Transportes\t\t" + str(EquipoTrans) + " \n")
     Activos += EquipoTrans
 except:
     None
@@ -633,7 +633,7 @@ except:
     None
 try:
     if SalariosPagar != 0:
-        respuesta.write("2505\t\tPasivo\t\t\tSalarios por pagar\t\t" + str(BancosNal) + " \n")
+        respuesta.write("2505\t\tPasivo\t\t\tSalarios por pagar\t\t" + str(SalariosPagar) + " \n")
         Pasivos += SalariosPagar
 except:
     None
@@ -681,3 +681,6 @@ respuesta.write("Se archivan en Patrimonio : " + str(Patrimonio) + "\n")
 
 lectura.close()    
 respuesta.close()
+
+
+           
