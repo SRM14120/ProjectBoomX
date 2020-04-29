@@ -4,7 +4,7 @@ if g == 1:
    a = input("Digite el nombre del archivo que posee las transacciones: ")
 else:
    h = int(input("Digite el número de transacciones a declarar: "))
-   f = input("Digite la fecha de la transacción a digitar: ")
+   f = input("Digite la fecha de la transacción a digitar en formato día-mes-año sin dejas espacios: ")
    v = f +".txt"
    hola = open(v,"w")
    hola.write("FECHA      CODIGO      VALOR \n")
@@ -679,8 +679,13 @@ respuesta.write("Se poseen en Activos : " + str(Activos) + "\n")
 respuesta.write("Se poseen en Pasivos : " + str(Pasivos) + "\n")
 respuesta.write("Se archivan en Patrimonio : " + str(Patrimonio) + "\n")
 
+if Activos == Pasivos + Patrimonio :
+    respuesta.write("Su cuenta está equilibrada ")
+else:
+    respuesta.write("Su cuenta no está equilibrada")
+
 lectura.close()    
 respuesta.close()
 
+print("Se ha creado un archivo llamado Obri.txt, alli encontrará el resumen de su cuenta hasta la última actualización")
 
-           
