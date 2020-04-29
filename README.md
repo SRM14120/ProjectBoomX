@@ -753,19 +753,19 @@ except:
     None
 try:
     if ActividadFinanciera != 0:
-        respuesta.write("6150\t\tActivo\t\t\Actividad financiera\t\t" + str(ActividadFinanciera) + " \n")
+        respuesta.write("6150\t\tActivo\t\t\tActividad financiera\t\t" + str(ActividadFinanciera) + " \n")
         Activos += ActividadFinanciera
 except:
     None
 try:
     if UsoPersonal != 0:
-        respuesta.write("6170\t\tActivo\t\t\ Uso de personal\t\t" + str(UsoPersonal) + "\n")
+        respuesta.write("6170\t\tActivo\t\t\tUso de personal\t\t\t" + str(UsoPersonal) + "\n")
         Activos += UsoPersonal
 except:
     None
 try:
     if ValorizacionesA != 0:
-        respuesta.write("19\t\tActivo\t\t\Valorizaciones de activos\t\t" + str(ValorizacionesA) + "\n")
+        respuesta.write("19\t\tActivo\t\t\tValorizaciones de activos\t" + str(ValorizacionesA) + "\n")
         Activos += ValorizacionesA
 except:
     None
@@ -781,7 +781,7 @@ else:
     respuesta.write("Verifique los siguientes posibles errores\n")
     try:
         if apSocial != 0:
-            respuesta.write("- Verifique que haya registrado el aporte social en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado el aporte social en caja o en una cuenta bancaria\n")
     except:
         None
     try:
@@ -871,42 +871,42 @@ else:
         None
     try:
         if CapitalA!= 0:
-            respuesta.write("- Verifique que haya registrado el capital asignado en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado el capital asignado en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if AportesE != 0:
-            respuesta.write("- Verifique que haya registrado el aportes del estado en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado el aportes del estado en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if FondoSoci != 0:
-            respuesta.write("- Verifique que haya registrado el fondo social en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado el fondo social en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if Donaciones != 0:
-            respuesta.write("- Verifique que haya registrado las donaciones en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado las donaciones en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if AjustesInfl != 0:
-            respuesta.write("- Verifique que haya registrado los ajustes por inflación en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado los ajustes por inflación en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if Utilidad != 0:
-            respuesta.write("- Verifique que haya registrado la utilidad en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado la utilidad en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if Perdidas != 0:
-            respuesta.write("- Verifique que haya registrado las perdidas en caja o en una cuenta bancaria\n ")
+            respuesta.write("- Verifique que haya registrado las perdidas en caja o en una cuenta bancaria\n")
     except:
         None
     try:
         if Valorizaciones != 0:
-            respuesta.write("- Verifique que haya registrado las valorizaciones en valorización de activos\n ")
+            respuesta.write("- Verifique que haya registrado las valorizaciones en valorización de activos\n")
     except:
         None
     
@@ -921,4 +921,3 @@ lectura.close()
 respuesta.close()
 
 print("\nSe ha creado un archivo llamado Obri.txt, alli encontrará el resumen de su cuenta hasta la última actualización")
-
