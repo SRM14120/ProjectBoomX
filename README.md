@@ -60,6 +60,13 @@ if b == 0 :
     Prestaciones = 0
     Indemnizaciones = 0
     PenJubilacion = 0
+    CargosDif = 0
+    UsoConst = 0
+    UsoVehiculos = 0
+    ActividadFinanciera = 0
+    UsoPersonal = 0
+    ValorizacionesA = 0
+    
     
 elif b ==1 :
     Activos = 0
@@ -147,6 +154,21 @@ elif b ==1 :
              Indemnizaciones = int(i.split()[3])
         elif i.split()[0] == "2620":
              PenJubilacion = int(i.split()[5])
+        elif i.split()[0] == "1710":
+             CargosDif = int(i.split()[4])
+        elif i.split()[0] == "6130":
+             UsoConst = int(i.split()[5])
+        elif i.split()[0] == "6145":
+             UsoVehiculos = int(i.split()[5])
+        elif i.split()[0] == "6150":
+             ActividadFinanciera = int(i.split()[4])
+        elif i.split()[0] == "6170":
+             UsoPersonal = int(i.split()[5])
+        elif i.split()[0] == "19":
+             ValorizacionesA = int(i.split()[5])
+        
+        
+             
              
 lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
@@ -397,6 +419,43 @@ for i in lectura:
         except:
             EquipoDeOficina = 0
             EquipoDeOficina += int(i.split()[2])
+    elif i.split()[1] == "1710":
+        try:
+            CargosDif += int(i.split()[2])
+        except:
+            CargosDif = 0
+            CargosDif += int(i.split()[2])
+    elif i.split()[1] == "6130":
+        try:
+            UsoConst += int(i.split()[2])
+        except:
+            UsoConst = 0
+            UsoConst += int(i.split()[2])
+    elif i.split()[1] == "6145":
+        try:
+            UsoVehiculos += int(i.split()[2])
+        except:
+            UsoVehiculos = 0
+            UsoVehiculos += int(i.split()[2])
+    elif i.split()[1] == "6150":
+        try:
+            ActividadFinanciera += int(i.split()[2])
+        except:
+            ActividadFinanciera = 0
+            ActividadFinanciera += int(i.split()[2])
+    elif i.split()[1] == "6170":
+        try:
+            UsoPersonal += int(i.split()[2])
+        except:
+            UsoPersonal = 0
+            UsoPersonal += int(i.split()[2])
+    elif i.split()[1] == "19":
+        try:
+            ValorizacionesA += int(i.split()[2])
+        except:
+           ValorizacionesA = 0
+           ValorizacionesA += int(i.split()[2])
+
             
             
 respuesta.write("Su resumen de cuentas al día: " + a + "\n")
@@ -674,6 +733,42 @@ try:
         Activos += EquipoDeOficina
 except:
     None
+try:
+    if CargosDif != 0:
+        respuesta.write("1710\t\tActivo\t\t\tCargos diferidos\t\t" + str(CargosDif) + " \n")
+        Activos += CargosDif
+except:
+    None
+try:
+    if UsoConst != 0:
+        respuesta.write("6130\t\tActivo\t\t\tUso de contrucción\t\t" + str(UsoConst) + " \n")
+        Activos += UsoConst
+except:
+    None
+try:
+    if UsoVehiculos != 0:
+        respuesta.write("6145\t\tActivo\t\t\tUso de vehículos\t\t" + str(UsoVehiculos) + " \n")
+        Activos += UsoVehiculos
+except:
+    None
+try:
+    if ActividadFinanciera != 0:
+        respuesta.write("6150\t\tActivo\t\t\Actividad financiera\t\t" + str(ActividadFinanciera) + " \n")
+        Activos += ActividadFinanciera
+except:
+    None
+try:
+    if UsoPersonal != 0:
+        respuesta.write("6170\t\tActivo\t\t\ Uso de personal\t\t" + str(UsoPersonal) + "\n")
+        Activos += UsoPersonal
+except:
+    None
+try:
+    if ValorizacionesA != 0:
+        respuesta.write("19\t\tActivo\t\t\Valorizaciones de activos\t\t" + str(ValorizacionesA) + "\n")
+        Activos += ValorizacionesA
+except:
+    None
 
 respuesta.write("Se poseen en Activos : " + str(Activos) + "\n")
 respuesta.write("Se poseen en Pasivos : " + str(Pasivos) + "\n")
@@ -682,10 +777,148 @@ respuesta.write("Se archivan en Patrimonio : " + str(Patrimonio) + "\n")
 if Activos == Pasivos + Patrimonio :
     respuesta.write("Su cuenta está equilibrada ")
 else:
-    respuesta.write("Su cuenta no está equilibrada")
-
+    respuesta.write("Su cuenta no está equilibrada\n")
+    respuesta.write("Verifique los siguientes posibles errores\n")
+    try:
+        if apSocial != 0:
+            respuesta.write("- Verifique que haya registrado el aporte social en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if BancosNal != 0:
+            respuesta.write("- Verifique que haya registrado el crédito de un banco nacional en caja o cuenta bancaria\n")
+    except:
+        None
+    try:
+        if BancosExtra != 0:
+            respuesta.write("- Verifique que haya registrado el credito de un banco extranjero en caja o en una cuenta bancaria\n")
+    except:
+        None
+    try:
+        if ProveedoresNal != 0:
+            respuesta.write("- Verifique que haya registrado la deuda con un proveedor nacional en mercancias\n")
+    except:
+        None
+    try:
+        if ProveedoresExt != 0:
+            respuesta.write("- Verifique que haya registrado la deuda con un proveedor extranjero en mercancias\n")
+    except:
+        None
+    try:
+        if DeudasSocios != 0:
+            respuesta.write("- Verifique que haya registrado la deuda con un socio de la empresa en caja o en una cuenta bancaria\n")
+    except:
+        None
+    try:
+        if AcreedoresVa != 0:
+            respuesta.write("- Verifique que haya registrado la deuda con un acreedor en caja o en una cuenta bancaria\n")
+    except:
+        None
+    try:
+        if RteFte != 0:
+            respuesta.write("- Verifique que haya registrado la retención en la fuente en cargos diferidos\n")
+    except:
+        None
+    try:
+        if ImpRenta != 0:
+            respuesta.write("- Verifique que haya registrado el impuesto de renta en uso de construcciones\n")
+    except:
+        None
+    try:
+        if ImpValor != 0:
+            respuesta.write("- Verifique que haya registrado el impuesto de valorización en uso de construcciones\n")
+    except:
+        None
+    try:
+        if ImpVehiculo != 0:
+            respuesta.write("- Verifique que haya registrado el impuesto de vehículos en uso de vehículos\n")
+    except:
+        None
+    try:
+        if ImpLicores != 0:
+            respuesta.write("- Verifique que haya registrado el impuesto de licores en actividad financiera\n")
+    except:
+        None
+    try:
+        if SalariosPagar != 0:
+            respuesta.write("- Verifique que haya registrado los salarios por pagar en uso de personal\n")
+    except:
+        None
+    try:
+        if Cesantias != 0:
+            respuesta.write("- Verifique que haya registrado las  cesantias en uso de personal\n")
+    except:
+        None
+    try:
+        if Prima != 0:
+            respuesta.write("- Verifique que haya registrado la prima en uso de personal\n")
+    except:
+        None
+    try:
+        if Prestaciones != 0:
+            respuesta.write("- Verifique que haya registrado las prestaciones en uso de personal\n")
+    except:
+        None
+    try:
+        if Indemnizaciones != 0:
+            respuesta.write("- Verifique que haya registrado las indemnizaciones en uso de personal o actividad financiera\n")
+    except:
+        None
+    try:
+        if PenJubilacion != 0:
+            respuesta.write("- Verifique que haya registrado la pension por jubilación en uso de personal\n")
+    except:
+        None
+    try:
+        if CapitalA!= 0:
+            respuesta.write("- Verifique que haya registrado el capital asignado en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if AportesE != 0:
+            respuesta.write("- Verifique que haya registrado el aportes del estado en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if FondoSoci != 0:
+            respuesta.write("- Verifique que haya registrado el fondo social en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if Donaciones != 0:
+            respuesta.write("- Verifique que haya registrado las donaciones en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if AjustesInfl != 0:
+            respuesta.write("- Verifique que haya registrado los ajustes por inflación en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if Utilidad != 0:
+            respuesta.write("- Verifique que haya registrado la utilidad en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if Perdidas != 0:
+            respuesta.write("- Verifique que haya registrado las perdidas en caja o en una cuenta bancaria\n ")
+    except:
+        None
+    try:
+        if Valorizaciones != 0:
+            respuesta.write("- Verifique que haya registrado las valorizaciones en valorización de activos\n ")
+    except:
+        None
+    
+    
+  
+    
+    
+    
+        
+        
 lectura.close()    
 respuesta.close()
 
-print("Se ha creado un archivo llamado Obri.txt, alli encontrará el resumen de su cuenta hasta la última actualización")
+print("\nSe ha creado un archivo llamado Obri.txt, alli encontrará el resumen de su cuenta hasta la última actualización")
 
