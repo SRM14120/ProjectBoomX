@@ -1,8 +1,11 @@
+#el programa pregunta si el usuario desea empezar una nueva cuenta, o utilizar una cuenta en curso.
 b = int(input("Si posee una cuenta en curso ingrese 1 , para empezar una nueva cuenta, ingrese 0: "))
+#el programa le da la opcion al usuario de elegir si crear el archivo aqui o subir uno ya existente.
 g = int(input("Para crear un archivo digite 0, para subir un archivo digite 1: "))
 if g == 1:
    a = input("Digite el nombre del archivo que posee las transacciones: ")
 else:
+#el programa crea el archivo.
    h = int(input("Digite el número de transacciones a declarar: "))
    f = input("Digite la fecha de la transacción a digitar en formato día-mes-año sin dejas espacios: ")
    v = f +".txt"
@@ -15,7 +18,7 @@ else:
    hola.close()
    a = v
    
-
+#si se empieza una cuenta nueva, se inicializan todas las variables de los codigos transaccionales en 0
 if b == 0 :
     Activos = 0
     Pasivos = 0
@@ -69,6 +72,7 @@ if b == 0 :
     
     
 elif b ==1 :
+#si el usuario ya tiene una cuenta en curso, se buscan los valores existentes en cada uno de los codigos transaccionales y se les agrega el valor.
     Activos = 0
     Pasivos = 0
     Patrimonio = 0
@@ -174,11 +178,11 @@ lectura = open(a,"r")
 respuesta = open("Obri.txt","w")
 
 for i in lectura:
-    a = i.split()[0]
-    if i.split()[1] == "1105" :
-      try: 
+    a = i.split()[0] #almacena la fecha del archivo.
+    if i.split()[1] == "1105" : 
+      try: #si el codigo transaccional tiene algun valor, intenta sumarle ese valor a la variable.
        caja += int(i.split()[2])
-      except:
+      except: #si no, la variable permanece en cero.
          caja = 0
          caja += int(i.split()[2])
     elif i.split()[1] == "3115":
@@ -461,7 +465,7 @@ for i in lectura:
 respuesta.write("Su resumen de cuentas al día: " + a + "\n")
 respuesta.write("Código\t\tCategoría\t\tDescripción\t\t\tValor\n")
                
-try:        
+try:        #Se hace un condicional, si la variable es diferente de cero, se muestran los activos o pasivos, dependiendo de la variable
   if caja != 0:
     respuesta.write("1105\t\tActivo\t\t\tCaja\t\t\t\t" + str(caja) + " \n")
     Activos += caja
@@ -776,7 +780,7 @@ respuesta.write("Se archivan en Patrimonio : " + str(Patrimonio) + "\n")
 
 if Activos == Pasivos + Patrimonio :
     respuesta.write("Su cuenta está equilibrada ")
-else:
+else: #si la cuenta no esta equilibrada, el programa revisa cual de los activos o pasivos estan mal.
     respuesta.write("Su cuenta no está equilibrada\n")
     respuesta.write("Verifique los siguientes posibles errores\n")
     try:
